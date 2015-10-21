@@ -1,7 +1,7 @@
 let promise = new Promise((resolve, reject) => {
-    resolve('HELLO WORLD!')
-})
+    resolve('HELLO WORLD!');
+});
 
-promise.then(console.log)
+promise.then(console.log);
 
-console.log("I'm first")
+console.log("I'm first");

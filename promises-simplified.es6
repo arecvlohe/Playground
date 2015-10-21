@@ -6,13 +6,13 @@ const weatherUrl  = 'http://api.openweathermap.org/data/2.5/weather?q=Tampa,FL&u
 function getWeather(url) {
   return new Promise((resolve, reject) => {
     http.get(url, (res) => {
-      let body = ''
-      res.setEncoding('utf8')
-      res.on('error', error => console.error(error))
-      res.on('data', chunk => body+=chunk)
-      res.on('end', () => resolve(body))
-    })
-  })
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('error', error => console.error(error));
+      res.on('data', chunk => body+=chunk);
+      res.on('end', () => resolve(body));
+    });
+  });
 }
 
 function parseWeatherData(data) {
@@ -32,4 +32,4 @@ function handleRequest(req, res) {
 
 http.createServer(handleRequest).listen(3000);
 
-console.log('Server listening on port 3000')
+console.log('Server listening on port 3000');
