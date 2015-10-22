@@ -19,7 +19,7 @@ function urls() {
   });
 }
 
-// urls().then(console.log); works
+// urls().then(console.log);
 
 function getWeather(urls) {
   var feed = [];
