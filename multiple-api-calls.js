@@ -16,9 +16,9 @@ function urls() {
 // urls().then(console.log); works
 
 function getWeather(urls) {
-  var feed = [];
   return new Promise(function (resolve, reject) {
-    resolve(feed = urls.map(function (url, idx) {
+    var feed = [];
+    resolve(Promise.all(feed = urls.map(function (url, idx) {
       http.get(url, function (res) {
         feed[idx] = '';
         res.setEncoding('utf8');
@@ -32,11 +32,13 @@ function getWeather(urls) {
           return console.log('logged entry ' + idx);
         });
       });
-    }));
+    })));
   });
 }
 
-urls().then(getWeather);
+urls().then(function (results) {
+  return getWeather(results).then(console.log);
+});
 
 /*
 

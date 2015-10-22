@@ -22,23 +22,25 @@ function urls() {
 // urls().then(console.log); works
 
 function getWeather(urls) {
-  var feed = [];
   return new Promise((resolve, reject) => {
+    var feed = [];
     resolve(
-      feed = urls.map((url, idx) => {
-        http.get(url, (res) => {
-          feed[idx] = '';
-          res.setEncoding('utf8');
-          res.on('error', error => console.error(error));
-          res.on('data', chunk => feed[idx]+=chunk);
-          res.on('end', () => console.log(`logged entry ${idx}`));
-        });
-      })
-    );
+      Promise.all(
+          feed = urls.map((url, idx) => {
+            http.get(url, (res) => {
+              feed[idx] = '';
+              res.setEncoding('utf8');
+              res.on('error', error => console.error(error));
+              res.on('data', chunk => feed[idx]+=chunk);
+              res.on('end', () => console.log(`logged entry ${idx}`));
+            });
+          })
+        )
+      );
   });
 }
 
-urls().then(getWeather);
+urls().then(results => getWeather(results).then(console.log));
 
 /*
 
