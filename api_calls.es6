@@ -18,7 +18,6 @@ function getUrls() {
   });
 }
 
-// getUrls().then(console.log);
 
 function getWeatherData(urls) {
   var count = 0;
@@ -45,6 +44,7 @@ function getWeatherData(urls) {
   });
 }
 
+
 function parseData(allData) {
   var tempAvg;
   return new Promise((resolve) => {
@@ -60,6 +60,7 @@ function parseData(allData) {
   });
 }
 
+
 function serve(temp) {
   http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -73,4 +74,5 @@ function serve(temp) {
 getUrls()
   .then(results => getWeatherData(results)
   .then(results => parseData(results)
-  .then(result => serve(result))));
+  .then(result => serve(result))
+  .catch(error => console.error(error))));
