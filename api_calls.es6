@@ -6,6 +6,7 @@ let cities = [
   'New York, NY'
 ];
 
+
 function getWeatherDataFrom(city) {
   return new Promise((resolve) => {
     var body = '';
@@ -32,6 +33,7 @@ function parseDataFrom(weatherData) {
   return sum / weatherData.length;
 }
 
+
 function handleResponse(req, res) {
   var promises = cities.map((city) => {
     return getWeatherDataFrom(city);
@@ -45,5 +47,6 @@ function handleResponse(req, res) {
     })
     .catch(error => console.error(error));
 }
+
 
 http.createServer(handleResponse).listen(3000);
