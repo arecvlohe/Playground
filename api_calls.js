@@ -11,8 +11,6 @@ function getUrls() {
   });
 }
 
-// getUrls().then(console.log);
-
 function getWeatherData(urls) {
   var count = 0;
   var feed = [];
@@ -63,6 +61,8 @@ getUrls().then(function (results) {
   return getWeatherData(results).then(function (results) {
     return parseData(results).then(function (result) {
       return serve(result);
+    })['catch'](function (error) {
+      return console.error(error);
     });
   });
 });
