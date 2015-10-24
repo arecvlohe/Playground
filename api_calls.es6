@@ -1,3 +1,5 @@
+'use strict';
+
 let http = require('http');
 let cities = [
   'Miami, FL',
