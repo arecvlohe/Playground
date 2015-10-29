@@ -6,7 +6,12 @@ let promise = new Promise((resolve, reject) => {
 promise.then(console.log);
 
 console.log("I'm first");
+
+This will console.log("I'm first") and then console.log("HELLO WORLD!")
+
 */
+
+
 
 let arr = ['1','2','3','4','5','6','7'];
 
@@ -21,7 +26,7 @@ function promise() {
 }
 
 
-// promise().then(console.log);
+// This will return a new promise and then console.log([numbers * 2])
 
 function addAll(array) {
   Promise.all(arr)
@@ -30,3 +35,5 @@ function addAll(array) {
 }
 
 addAll();
+
+// This will return a promise that executes the functions above, ending in console.log([numbers * 2])
