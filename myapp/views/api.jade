@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	.container
+		h1= title
+		br
+		form(method="post" action="/api/superheroes")
+			.form-group
+				label Superhero Name
+				input(type="text" name="name" required)
+			button(type="submit") Submit	
+
+		h2 All Superheroes
+			ul
+				each superhero in superheroes 
+					li
+						a(href="superhero/#{superhero.id}")= superhero.name
+
