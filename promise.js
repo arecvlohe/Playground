@@ -1,17 +1,14 @@
-/*
-let promise = new Promise((resolve, reject) => {
-    resolve('HELLO WORLD!');
+'use strict';
+
+var promise = new Promise(function (resolve, reject) {
+  resolve('HELLO WORLD!');
 });
 
 promise.then(console.log);
 
 console.log("I'm first");
 
-This will console.log("I'm first") and then console.log("HELLO WORLD!")
-
-*/
-
-'use strict';
+// This will console.log("I'm first") and then console.log("HELLO WORLD!")
 
 var arr = ['1', '2', '3', '4', '5', '6', '7'];
 

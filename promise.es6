@@ -1,17 +1,11 @@
-/*
-let promise = new Promise((resolve, reject) => {
-    resolve('HELLO WORLD!');
+let promise = new Promise((resolve, reject) => { resolve('HELLO WORLD!');
 });
 
 promise.then(console.log);
 
 console.log("I'm first");
 
-This will console.log("I'm first") and then console.log("HELLO WORLD!")
-
-*/
-
-
+// This will console.log("I'm first") and then console.log("HELLO WORLD!")
 
 let arr = ['1','2','3','4','5','6','7'];
 
@@ -24,7 +18,6 @@ function promise() {
     );
   });
 }
-
 
 // This will return a new promise and then console.log([numbers * 2])
 
