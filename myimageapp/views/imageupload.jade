@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  a(href='/api/imageupload') Back to Image Uploads
+  br
+  h1= title
+  br
+
+  p Image:
+  img(src='/#{imageupload.path}')
+
+  form(method='post' action='/api/imageupload/#{imageupload.id}?_method=PUT')
+    label Image Name
+    br
+    input(type='text' name='name' value='#{imageupload.name}' required)
+    button(type='submit') Update
+  br
+  form(method='post' action='/api/imageupload/#{imageupload.id}?_method=DELETE')
+    button(type='submit') Delete
